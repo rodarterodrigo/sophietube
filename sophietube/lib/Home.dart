@@ -6,6 +6,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _currentInd = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,27 +25,63 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.videocam),
             onPressed: (){
-              print("ação: videocam");
             },
 
           ),
           IconButton(
             icon: Icon(Icons.search),
             onPressed: (){
-              print("ação: pesquisa");
             },
 
           ),
           IconButton(
             icon: Icon(Icons.account_circle),
             onPressed: (){
-              print("ação: conta");
             },
           ),
         ],
       ),
       body: Container(
-
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentInd,
+        onTap: (ind){
+          setState(() {
+            _currentInd = ind;
+          });
+        },
+        type: BottomNavigationBarType.shifting,
+        fixedColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            backgroundColor: Colors.red,
+            title: Text(
+              "Início",
+            ),
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            title: Text(
+              "Em alta",
+            ),
+            icon: Icon(Icons.whatshot),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.amber,
+            title: Text(
+              "Inscrições",
+            ),
+            icon: Icon(Icons.subscriptions),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.green,
+            title: Text(
+              "Biblioteca",
+            ),
+            icon: Icon(Icons.video_library),
+          ),
+        ],
       ),
     );
   }
