@@ -11,7 +11,7 @@ class _StartState extends State<Start> {
 
   Api api = Api();
   Future<List<Video>> _listVideos() async{
-    return api.search("");
+    return await api.search("");
   }
 
   @override

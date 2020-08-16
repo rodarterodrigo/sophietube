@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sophietube/navigation/Navigation.dart';
+import 'package:sophietube/search/CustomSearchDelegate.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -27,22 +28,21 @@ class _HomeState extends State<Home> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.videocam),
-            onPressed: (){
-            },
-
-          ),
-          IconButton(
             icon: Icon(Icons.search),
             onPressed: (){
-            },
-
-          ),
-          IconButton(
-            icon: Icon(Icons.account_circle),
-            onPressed: (){
+              showSearch(context: context, delegate: CustomSearchDelegate());
             },
           ),
+//          IconButton(
+//            icon: Icon(Icons.videocam),
+//            onPressed: (){
+//            },
+//          ),
+//          IconButton(
+//            icon: Icon(Icons.account_circle),
+//            onPressed: (){
+//            },
+//          ),
         ],
       ),
       body: Container(
