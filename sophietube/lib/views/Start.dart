@@ -18,7 +18,7 @@ class _StartState extends State<Start> {
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Video>>(
-      future: _listVideos(""),
+      future: _listVideos(widget.search),
       builder: (context, snapshot){
         switch(snapshot.connectionState){
           case ConnectionState.none:
