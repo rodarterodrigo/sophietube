@@ -23,12 +23,7 @@ class Api{
 
     if(response.statusCode == 200) {
       Map<String, dynamic> jsonData = json.decode(response.body);
-      List<Video> videos = jsonData["items"].map<Video>(
-          (map) => Video.fromJson(map),
-      );
-//      for(var v in jsonData["items"]){
-//        print("resultado: " + v.toString());
-//      }
+      List<Video> videos = jsonData["items"].map<Video>((map) => Video.fromJson(map));
     }
   }
 }
