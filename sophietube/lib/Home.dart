@@ -7,7 +7,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  
+
   Navigation navigation = Navigation();
   int _currentInd = 0;
 
