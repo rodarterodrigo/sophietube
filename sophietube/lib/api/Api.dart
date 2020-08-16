@@ -26,8 +26,5 @@ class Api{
       Map<String, dynamic> jsonData = json.decode(response.body);
       return jsonData["items"].map<Video>((map) => Video.fromJson(map)).toList();
     }
-    else{
-      print(response.body);
-    }
   }
 }

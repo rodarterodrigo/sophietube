@@ -32,7 +32,6 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.search),
             onPressed: () async{
               String res = await showSearch(context: context, delegate: CustomSearchDelegate());
-              print(res);
               setState(() {
                 _result = res;
               });
