@@ -9,6 +9,12 @@ class _HomeState extends State<Home> {
   int _currentInd = 0;
   @override
   Widget build(BuildContext context) {
+    List<Widget> views = [
+      Text("Início"),
+      Text("Em alta"),
+      Text("Inscrições"),
+      Text("Biblioteca"),
+    ];
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -41,8 +47,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: Container(
-      ),
+      body: views[_currentInd],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentInd,
         onTap: (ind){
