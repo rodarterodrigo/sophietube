@@ -59,10 +59,6 @@ class _StartState extends State<Start> {
                   itemCount: snapshot.data.length,
               );
             }
-            else
-            {
-
-            }
         }
         return Container();
       },
