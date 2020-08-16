@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sophietube/views/HotAndNews.dart';
+import 'package:sophietube/views/Library.dart';
+import 'package:sophietube/views/Start.dart';
+import 'package:sophietube/views/Subscriptions.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,10 +14,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     List<Widget> views = [
-      Text("Início"),
-      Text("Em alta"),
-      Text("Inscrições"),
-      Text("Biblioteca"),
+      Start(),
+      HotAndNews(),
+      Subscriptions(),
+      Library(),
     ];
     return Scaffold(
       appBar: AppBar(

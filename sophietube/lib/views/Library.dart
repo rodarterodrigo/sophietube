@@ -8,6 +8,15 @@ class Library extends StatefulWidget {
 class _LibraryState extends State<Library> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text(
+            "Biblioteca",
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        ),
+      ),
+    );
   }
 }

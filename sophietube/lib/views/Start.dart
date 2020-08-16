@@ -8,6 +8,15 @@ class Start extends StatefulWidget {
 class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text(
+          "Início",
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        ),
+      ),
+    );
   }
 }
