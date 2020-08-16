@@ -45,7 +45,10 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: navigation.viewList(_currentInd),
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: navigation.viewList(_currentInd),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentInd,
         onTap: (ind){
