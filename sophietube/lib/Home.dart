@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophietube/views/HotAndNews.dart';
-import 'package:sophietube/views/Library.dart';
-import 'package:sophietube/views/Start.dart';
-import 'package:sophietube/views/Subscriptions.dart';
+import 'package:sophietube/NavigationServices/Navigation.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,15 +7,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Navigation navigation = Navigation();
   int _currentInd = 0;
   @override
   Widget build(BuildContext context) {
-    List<Widget> views = [
-      Start(),
-      HotAndNews(),
-      Subscriptions(),
-      Library(),
-    ];
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -51,7 +43,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: views[_currentInd],
+      body: navigation.viewList(_currentInd),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentInd,
         onTap: (ind){
