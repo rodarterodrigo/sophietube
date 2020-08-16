@@ -19,22 +19,44 @@ class CustomSearchDelegate extends SearchDelegate<String>{
       IconButton(
         icon: Icon(Icons.arrow_back),
         onPressed: (){
-          close(context, null);
+          close(context, "");
         },
       );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    //print("presquisa sendo realizada");
     close(context, query);
     return Container();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    //print("resultado: " + query );
-    return Container();
+    List<String> list = List();
+    if(query.isNotEmpty){
+      list = [
+        "Android", "navegação", "IOS", "Games"
+      ].where((element) => element.toLowerCase().startsWith(query.toLowerCase())).toList();
+      return ListView.builder(
+          itemBuilder: (context, ind){
+            return ListTile(
+              onTap: (){
+                close(context, list[ind]);
+              },
+              title: Text(
+                list[ind],
+              ),
+            );
+          },
+        itemCount: list.length,
+      );
+    }
+    else{
+      return Center(
+        child: Text(
+          "Nenhum resultado para a pesquisa."
+        ),
+      );
+    }
   }
-  
 }

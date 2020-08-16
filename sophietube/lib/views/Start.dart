@@ -18,10 +18,18 @@ class _StartState extends State<Start> {
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Video>>(
-      future: _listVideos(widget.search),
+      future: null,//_listVideos(widget.search),
       builder: (context, snapshot){
         switch(snapshot.connectionState){
           case ConnectionState.none:
+            return Center(
+              child: Text(
+                  "Verifique sua conexão.",
+                style: TextStyle(
+                  fontSize: 25
+                ),
+              ),
+            );
           case ConnectionState.waiting:
             return Center(
               child: CircularProgressIndicator(),
@@ -59,6 +67,17 @@ class _StartState extends State<Start> {
                   itemCount: snapshot.data.length,
               );
             }
+            else{
+              return Center(
+                child: Text(
+                  "Não foi possível retornar dados.",
+                  style: TextStyle(
+                    fontSize: 25,
+                  ),
+                ),
+              );
+            }
+            break;
         }
         return Container();
       },
