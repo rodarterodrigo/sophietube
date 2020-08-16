@@ -10,7 +10,7 @@ class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
     Api api = Api();
-    api.search("");
+//    api.search("");
 
     return Container(
       child: Center(

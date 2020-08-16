@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophietube/NavigationServices/Navigation.dart';
+import 'package:sophietube/navigation/Navigation.dart';
 
 class Home extends StatefulWidget {
   @override
