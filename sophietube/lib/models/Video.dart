@@ -9,17 +9,13 @@ class Video {
 
   Video({this.id, this.title, this.description, this.image, this.channel});
 
-  static jsonConvert(Map<String, dynamic> json){
+  factory Video.fromJson(Map<String, dynamic> json){
     return Video(
       id: json["id"]["videoId"],
       title: json["snippet"]["title"],
       channel: json["snippet"]["channelId"],
       description: json["snippet"]["description"],
-      image: json["snippet"]["thumbnails"]["default"]["url"],
+      image: json["snippet"]["thumbnails"]["high"]["url"],
     );
-  }
-
-  Video.fromJson(Map<String, dynamic> json){
-    return;
   }
 }
