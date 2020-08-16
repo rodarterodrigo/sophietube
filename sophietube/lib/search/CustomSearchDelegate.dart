@@ -70,7 +70,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
                 return ListView.separated(
                   itemBuilder: (context, ind){
                     List<Sugestion> sugestions = snapshot.data;
-                    String title = sugestions[ind].title.startsWith(query, ind).toString();
+                    String title = sugestions[ind].title;
                     return Column(
                       children: <Widget>[
                         ListTile(
