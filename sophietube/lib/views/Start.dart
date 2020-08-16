@@ -3,6 +3,8 @@ import 'package:sophietube/Api/Api.dart';
 import 'package:sophietube/models/Video.dart';
 
 class Start extends StatefulWidget {
+  String search;
+  Start(this.search);
   @override
   _StartState createState() => _StartState();
 }
@@ -10,13 +12,13 @@ class Start extends StatefulWidget {
 class _StartState extends State<Start> {
 
   Api api = Api();
-  Future<List<Video>> _listVideos() async{
-    return await api.search("");
+  Future<List<Video>> _listVideos(String search) async{
+    return await api.search(search);
   }
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Video>>(
-      future: null,//_listVideos(),
+      future: _listVideos(""),
       builder: (context, snapshot){
         switch(snapshot.connectionState){
           case ConnectionState.none:

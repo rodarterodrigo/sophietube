@@ -7,7 +7,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
       IconButton(
         icon: Icon(Icons.clear),
         onPressed: (){
-
+          query = "";
         },
       ),
     ];
@@ -15,23 +15,26 @@ class CustomSearchDelegate extends SearchDelegate<String>{
 
   @override
   Widget buildLeading(BuildContext context) {
-    return Container(
-
-    );
+    return
+      IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: (){
+          close(context, null);
+        },
+      );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container(
-
-    );
+    //print("presquisa sendo realizada");
+    close(context, query);
+    return Container();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Container(
-
-    );
+    //print("resultado: " + query );
+    return Container();
   }
   
 }

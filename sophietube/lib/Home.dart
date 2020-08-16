@@ -3,12 +3,13 @@ import 'package:sophietube/navigation/Navigation.dart';
 import 'package:sophietube/search/CustomSearchDelegate.dart';
 
 class Home extends StatefulWidget {
+  String search;
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-
+  String _result = "";
   Navigation navigation = Navigation();
   int _currentInd = 0;
 
@@ -29,8 +30,12 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: (){
-              showSearch(context: context, delegate: CustomSearchDelegate());
+            onPressed: () async{
+              String res = await showSearch(context: context, delegate: CustomSearchDelegate());
+              print(res);
+              setState(() {
+                _result = res;
+              });
             },
           ),
 //          IconButton(
@@ -47,7 +52,7 @@ class _HomeState extends State<Home> {
       ),
       body: Container(
         padding: EdgeInsets.all(16),
-        child: navigation.viewList(_currentInd),
+        child: navigation.viewList(_currentInd, _result),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentInd,
