@@ -4,8 +4,11 @@ import 'package:sophietube/models/Sugestion.dart';
 
 class CustomSearchDelegate extends SearchDelegate<String>{
   @override
-  List<Widget> buildActions(BuildContext context) {
-    return[
+  // TODO: implement searchFieldLabel
+  String get searchFieldLabel => "Busca";
+  @override
+  List<Widget> buildActions(BuildContext context)
+    => [
       IconButton(
         icon: Icon(Icons.clear),
         onPressed: (){
@@ -13,18 +16,16 @@ class CustomSearchDelegate extends SearchDelegate<String>{
         },
       ),
     ];
-  }
+
 
   @override
-  Widget buildLeading(BuildContext context) {
-    return
-      IconButton(
+  Widget buildLeading(BuildContext context)
+    => IconButton(
         icon: Icon(Icons.arrow_back),
         onPressed: (){
           close(context, "");
         },
       );
-  }
 
   @override
   Widget buildResults(BuildContext context) {
@@ -34,15 +35,10 @@ class CustomSearchDelegate extends SearchDelegate<String>{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    SugestionApi sugestionApi = SugestionApi();
-
-
     if(query.isNotEmpty){
 //      List<String> list = List();
       SugestionApi api = SugestionApi();
-      Future<List<Sugestion>> _listSugestions(String search) async{
-        return await api.search(search);
-      }
+      Future<List<Sugestion>> _listSugestions(String search) async => await api.search(search);
 //      list = [
 //        "Android", "Navegação", "IOS", "Flutter"
 //      ].where((element) => element.toLowerCase().startsWith(query.toLowerCase())).toList();
@@ -74,6 +70,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
                     return Column(
                       children: <Widget>[
                         ListTile(
+                          onTap: () => close(context, title),
                           title: Text(title),
                         ),
                       ],
