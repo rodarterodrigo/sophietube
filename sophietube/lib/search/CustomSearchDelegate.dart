@@ -51,7 +51,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
                 child: Text(
                   "Verifique sua conexão.",
                   style: TextStyle(
-                      fontSize: 25
+                      fontSize: 20
                   ),
                 ),
               );
@@ -88,7 +88,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
                   child: Text(
                     "Não foi possível retornar dados.",
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                     ),
                   ),
                 );
@@ -117,7 +117,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
         child: Text(
           "Nenhum resultado para a pesquisa.",
           style: TextStyle(
-            fontSize: 25
+            fontSize: 20
           ),
         ),
       );

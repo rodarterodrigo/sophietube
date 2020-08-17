@@ -26,7 +26,7 @@ class _StartState extends State<Start> {
               child: Text(
                   "Verifique sua conexão.",
                 style: TextStyle(
-                  fontSize: 25
+                  fontSize: 20
                 ),
               ),
             );
@@ -72,7 +72,7 @@ class _StartState extends State<Start> {
                 child: Text(
                   "Não foi possível retornar dados.",
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 20,
                   ),
                 ),
               );
