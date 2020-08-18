@@ -26,6 +26,5 @@ class SugestionApi{
       Map<String, dynamic> jsonData = json.decode(response.body);
       return jsonData["items"].map<Sugestion>((map) => Sugestion.fromJson(map)).toList();
     }
-    //print(response.body);
   }
 }

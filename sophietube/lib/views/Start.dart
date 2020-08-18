@@ -43,19 +43,13 @@ class _StartState extends State<Start> {
                   itemBuilder: (context, ind){
                     List<Video> videos = snapshot.data;
                     Video video = videos[ind];
-                    return GestureDetector(
-                      onTap: (){
-                        FlutterYoutube.playYoutubeVideoById(
-                            apiKey: YOUTUBE_API_KEY,
-                            videoId: video.id,
-                            autoPlay: true,
-                            appBarVisible: true,
-                            fullScreen: false
-                        );
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          Container(
+                    return Column(
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: (){
+                            FlutterYoutube.playYoutubeVideoById(apiKey: YOUTUBE_API_KEY, videoId: video.id);
+                          },
+                          child: Container(
                             height: 200,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -64,12 +58,12 @@ class _StartState extends State<Start> {
                                 )
                             ),
                           ),
-                          ListTile(
-                            title: Text(video.title),
-                            subtitle: Text(video.channel),
-                          ),
-                        ],
-                      ),
+                        ),
+                        ListTile(
+                          title: Text(video.title),
+                          subtitle: Text(video.channel),
+                        ),
+                      ],
                     );
                   },
                   separatorBuilder: (context, ind) => Divider(
