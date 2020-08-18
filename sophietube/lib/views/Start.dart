@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sophietube/Api/Api.dart';
+import 'package:sophietube/api/Api.dart';
 import 'package:sophietube/models/Video.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 
 class Start extends StatefulWidget {
   String search;
@@ -42,22 +43,33 @@ class _StartState extends State<Start> {
                   itemBuilder: (context, ind){
                     List<Video> videos = snapshot.data;
                     Video video = videos[ind];
-                    return Column(
-                      children: <Widget>[
-                        Container(
-                          height: 200,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(video.image),
-                            )
+                    return GestureDetector(
+                      onTap: (){
+                        FlutterYoutube.playYoutubeVideoById(
+                            apiKey: YOUTUBE_API_KEY,
+                            videoId: video.id,
+                            autoPlay: true,
+                            appBarVisible: true,
+                            fullScreen: false
+                        );
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            height: 200,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(video.image),
+                                )
+                            ),
                           ),
-                        ),
-                        ListTile(
-                          title: Text(video.title),
-                          subtitle: Text(video.channel),
-                        ),
-                      ],
+                          ListTile(
+                            title: Text(video.title),
+                            subtitle: Text(video.channel),
+                          ),
+                        ],
+                      ),
                     );
                   },
                   separatorBuilder: (context, ind) => Divider(

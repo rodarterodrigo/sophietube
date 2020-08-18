@@ -3,7 +3,6 @@ import 'package:sophietube/models/Sugestion.dart';
 
 class SearchHelper implements SearchDelegate{
 
-
   String _verifyConection = "Verifique sua conexão.";
   String _dataFail = "Não foi possível retornar dados.";
   String _noResult = "Nenhum resultado para a pesquisa.";
