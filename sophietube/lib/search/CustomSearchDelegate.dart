@@ -4,9 +4,6 @@ import 'package:sophietube/models/Sugestion.dart';
 import 'package:sophietube/search/SearchHelper.dart';
 
 class CustomSearchDelegate extends SearchDelegate<String>{
-  String _verifyConection = "Verifique sua conexão.";
-  String _dataFail = "Não foi possível retornar dados.";
-
   @override
   // TODO: implement searchFieldLabel
   String get searchFieldLabel => "Busca";
@@ -49,14 +46,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
         builder: (context, snapshot){
           switch (snapshot.connectionState) {
             case ConnectionState.none:
-              return Center(
-                child: Text(
-                  _verifyConection,
-                  style: TextStyle(
-                      fontSize: 20
-                  ),
-                ),
-              );
+              return searchHelper.verifyConnection();
             case ConnectionState.waiting:
               return Center(
                 child: CircularProgressIndicator(),
@@ -86,19 +76,11 @@ class CustomSearchDelegate extends SearchDelegate<String>{
                   itemCount: snapshot.data.length,
                 );
               }
-              else {
-                return Center(
-                  child: Text(
-                    _dataFail,
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                );
-              }
+              else
+                return searchHelper.dataFail();
               break;
           }
-          return Container();
+          return searchHelper.noResult();
         }
       );
     }
