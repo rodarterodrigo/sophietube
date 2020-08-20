@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sophietube/api/Api.dart';
 import 'package:sophietube/models/Video.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
+import 'package:sophietube/search/SearchHelper.dart';
 
 class Start extends StatefulWidget {
   String search;
@@ -11,7 +12,7 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
-
+  SearchHelper searchHelper = new SearchHelper();
   Api api = Api();
   Future<List<Video>> _listVideos(String search) async{
     return await api.search(search);
@@ -23,14 +24,7 @@ class _StartState extends State<Start> {
       builder: (context, snapshot){
         switch(snapshot.connectionState){
           case ConnectionState.none:
-            return Center(
-              child: Text(
-                  "Verifique sua conexão.",
-                style: TextStyle(
-                  fontSize: 20
-                ),
-              ),
-            );
+            return searchHelper.verifyConnection();
           case ConnectionState.waiting:
             return Center(
               child: CircularProgressIndicator(),
@@ -46,9 +40,16 @@ class _StartState extends State<Start> {
                     return Column(
                       children: <Widget>[
                         GestureDetector(
-                          onTap: (){
-                            FlutterYoutube.playYoutubeVideoById(apiKey: YOUTUBE_API_KEY, videoId: video.id);
-                          },
+                          onTap: ()=>
+                            FlutterYoutube.playYoutubeVideoById(
+                                apiKey: YOUTUBE_API_KEY,
+                                videoId: video.id,
+                                fullScreen: false,
+                                appBarColor: Colors.black,
+                                backgroundColor: Colors.black,
+                                appBarVisible: true,
+                                autoPlay: true,
+                            ),
                           child: Container(
                             height: 200,
                             decoration: BoxDecoration(
@@ -74,14 +75,7 @@ class _StartState extends State<Start> {
               );
             }
             else{
-              return Center(
-                child: Text(
-                  "Não foi possível retornar dados.",
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              );
+              return searchHelper.dataFail();
             }
             break;
         }
