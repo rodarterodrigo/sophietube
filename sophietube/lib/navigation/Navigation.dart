@@ -5,6 +5,7 @@ import 'package:sophietube/views/Start.dart';
 import 'package:sophietube/views/Subscriptions.dart';
 
 class Navigation{
+
   Widget viewList(int ind, String search) {
     List<Widget> views = [
       Start(search),
