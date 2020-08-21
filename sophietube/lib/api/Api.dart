@@ -9,8 +9,7 @@ const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 class Api{
 
   Future<List<Video>> search(String search) async{
-    if (search == null)
-      search = "";
+    if (search == null) search = "";
     http.Response response = await http.get(
         URL_BASE + "search"
             "?part=snippet"

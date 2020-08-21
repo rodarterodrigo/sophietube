@@ -85,8 +85,6 @@ class CustomSearchDelegate extends SearchDelegate<String>{
       );
     }
     else
-    {
       return searchHelper.noResult();
-    }
   }
 }
