@@ -14,9 +14,7 @@ class Start extends StatefulWidget {
 class _StartState extends State<Start> {
   SearchHelper searchHelper = new SearchHelper();
   Api api = Api();
-  Future<List<Video>> _listVideos(String search) async{
-    return await api.search(search);
-  }
+  Future<List<Video>> _listVideos(String search) async => await api.search(search);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Video>>(
