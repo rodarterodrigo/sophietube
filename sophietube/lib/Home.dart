@@ -50,36 +50,7 @@ class _HomeState extends State<Home> {
             onTap: (ind) => navBloc.inputAdd(ind),
             type: BottomNavigationBarType.shifting,
             fixedColor: Colors.white,
-            items: [
-              BottomNavigationBarItem(
-                backgroundColor: Colors.red,
-                title: Text(
-                  "Início",
-                ),
-                icon: Icon(Icons.home),
-              ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.blue,
-                title: Text(
-                  "Em alta",
-                ),
-                icon: Icon(Icons.whatshot),
-              ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.amber,
-                title: Text(
-                  "Inscrições",
-                ),
-                icon: Icon(Icons.subscriptions),
-              ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.green,
-                title: Text(
-                  "Biblioteca",
-                ),
-                icon: Icon(Icons.video_library),
-              ),
-            ],
+            items: navigation.bottonNavigation(),
           ),
         );
       },

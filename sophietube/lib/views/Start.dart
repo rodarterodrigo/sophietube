@@ -74,9 +74,8 @@ class _StartState extends State<Start> {
                   itemCount: snapshot.data.length,
               );
             }
-            else{
+            else
               return searchHelper.dataFail();
-            }
             break;
         }
         return Container();

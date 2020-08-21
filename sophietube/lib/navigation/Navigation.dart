@@ -15,4 +15,36 @@ class Navigation{
     ];
     return views[ind];
   }
+
+  List<BottomNavigationBarItem> bottonNavigation()
+      => [
+      BottomNavigationBarItem(
+        backgroundColor: Colors.red,
+        title: Text(
+          "Início",
+        ),
+        icon: Icon(Icons.home),
+      ),
+      BottomNavigationBarItem(
+        backgroundColor: Colors.blue,
+        title: Text(
+          "Em alta",
+        ),
+        icon: Icon(Icons.whatshot),
+      ),
+      BottomNavigationBarItem(
+        backgroundColor: Colors.amber,
+        title: Text(
+          "Inscrições",
+        ),
+        icon: Icon(Icons.subscriptions),
+      ),
+      BottomNavigationBarItem(
+        backgroundColor: Colors.green,
+        title: Text(
+          "Biblioteca",
+        ),
+        icon: Icon(Icons.video_library),
+      ),
+    ];
 }
