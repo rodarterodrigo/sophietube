@@ -16,4 +16,8 @@ class NavigationBloc {
     this.search = search;
     input.add(this.search);
   }
+
+  void dispose(){
+    _streamController.close();
+  }
 }

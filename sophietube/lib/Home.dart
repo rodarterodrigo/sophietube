@@ -56,4 +56,9 @@ class _HomeState extends State<Home> {
       },
     );
   }
+  @override
+  void dispose() {
+    navBloc.dispose();
+    super.dispose();
+  }
 }
